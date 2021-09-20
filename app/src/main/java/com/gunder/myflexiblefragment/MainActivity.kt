@@ -16,7 +16,9 @@ class MainActivity : AppCompatActivity() {
         if (fragment !is HomeFragment) {
             Log.d("MyFlexibleFragment", "Fragment name :" + HomeFragment::class.java.simpleName)
             mFragmentManager
+//                    .beginTransaction() untuk memulai proses perubahan.
                 .beginTransaction()
+//                    Metode add() akan menambahkan objek fragment ke dalam layout container
                 .add(R.id.frame_container, mHomeFragment, HomeFragment::class.java.simpleName)
                 .commit()
         }

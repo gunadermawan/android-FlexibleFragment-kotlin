@@ -1,5 +1,7 @@
 package com.gunder.myflexiblefragment
 
+import android.app.Activity
+import android.content.Intent
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -34,6 +36,10 @@ class DetailCategoryFragment : Fragment() {
         tvCategoryName = view.findViewById(R.id.tv_category_name)
         tvCategoryDescription = view.findViewById(R.id.tv_category_description)
         btnProfile = view.findViewById(R.id.btn_profile)
+        btnProfile.setOnClickListener {
+            val mIntent = Intent(activity, ProfileActivity::class.java)
+            startActivity(mIntent)
+        }
         btnShowDialog = view.findViewById(R.id.btn_showDialog)
 //        onClick Listener
         btnShowDialog.setOnClickListener {

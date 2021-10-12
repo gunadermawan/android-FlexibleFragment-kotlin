@@ -6,6 +6,8 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
+import androidx.fragment.app.commit
+
 class HomeFragment : Fragment(), View.OnClickListener {
 
     override fun onCreateView(
@@ -25,10 +27,13 @@ class HomeFragment : Fragment(), View.OnClickListener {
     override fun onClick(v: View?) {
         val mCategoryFragment = CategoryFragment()
         val mFragmentManager = parentFragmentManager
-        mFragmentManager.beginTransaction().apply {
-            replace(R.id.frame_container, mCategoryFragment, CategoryFragment::class.java.simpleName)
+        mFragmentManager.commit {
             addToBackStack(null)
-            commit()
+            replace(
+                R.id.frame_container,
+                mCategoryFragment,
+                CategoryFragment::class.java.simpleName
+            )
         }
     }
 }
